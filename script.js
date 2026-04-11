@@ -1,6 +1,7 @@
 const PASSWORD = "SHAWARMA";
 
-/* ─── NAVIGATION ─────────────────────────────── */
+/* ─── NAVIGATION ──────────────────────────────────────────────────────────── */
+
 function navigate(targetId) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById(targetId);
@@ -10,7 +11,12 @@ function navigate(targetId) {
   }
 }
 
-/* ─── PASSWORD ────────────────────────────────── */
+document.querySelectorAll('.portal[data-target]').forEach(btn => {
+  btn.addEventListener('click', () => navigate(btn.dataset.target));
+});
+
+/* ─── PASSWORD ────────────────────────────────────────────────────────────── */
+
 let wrongCount = 0;
 
 function checkPassword() {
@@ -36,6 +42,8 @@ document.getElementById('passwordInput').addEventListener('keydown', e => {
   if (e.key === 'Enter') checkPassword();
 });
 
+/* ─── CONTENT ─────────────────────────────────────────────────────────────── */
+
 const REASONS = [
   "the way ik you miss me but act like you don't (you don't always tell me nonchalant ass 😭😭",
   "how you make me sooo happy, relaxed, worryless all at oncee 😭😭",
@@ -49,7 +57,7 @@ const REASONS = [
   "I JUST LOVE YOU SOOO MUCHHH DARLINGG 🎀💗",
   "gnggg you basically have my heart in the palm of your hands, don't squeeze too hard 😔🙏🏻",
   "the extent to which you made me yap abt you to literally everyone I speak to 😇🙏🏻",
-  "I love how clingy you areeee, be more clingyy  more territorial idc 😭😭",
+  "I love how clingy you areeee, be more clingyy more territorial idc 😭😭",
   "how comfortable and talkative you're with meee 🎀",
   "mwahhh - you know what you're doinggg when youu say itt 😭😭",
   "I love how we can talK abt ANYTHINGGG",
@@ -94,22 +102,6 @@ const PROMISES = [
   "I will always argue with you and ragebait youuuu 😋😋",
 ];
 
-/* ─── NAVIGATION ──────────────────────────────────────────────────────────── */
-
-function navigate(targetId) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  const target = document.getElementById(targetId);
-  if (target) {
-    target.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-}
-
-// Wire up portal buttons
-document.querySelectorAll('.portal[data-target]').forEach(btn => {
-  btn.addEventListener('click', () => navigate(btn.dataset.target));
-});
-
 /* ─── MUSIC ───────────────────────────────────────────────────────────────── */
 
 const PLAYLIST = ['song1.mp3', 'song2.mp3', 'song3.mp3', 'song4.mp3'];
@@ -139,7 +131,6 @@ function playNext() {
   music.play().then(() => setMusicState(true)).catch(() => {});
 }
 
-// Auto advance to next song
 music.addEventListener('ended', playNext);
 
 musicBtn.addEventListener('click', () => {
@@ -147,7 +138,6 @@ musicBtn.addEventListener('click', () => {
   else              { music.pause(); setMusicState(false); }
 });
 
-// Auto-play on first interaction
 window.addEventListener('click', () => {
   if (music.paused) { music.play().then(() => setMusicState(true)).catch(() => {}); }
 }, { once: true });
@@ -177,7 +167,6 @@ function nextReason() {
   }
 }
 
-// Init first reason
 document.getElementById('reasonBox').textContent = REASONS[0];
 document.getElementById('reasonBox').classList.add('show');
 
@@ -266,12 +255,12 @@ function createParticle() {
 
 setInterval(createParticle, 400);
 
-// Kick off a few immediately
 for (let i = 0; i < 8; i++) {
   setTimeout(createParticle, i * 100);
 }
 
-// ── RELATIONSHIP COUNTER ──────────────────────
+/* ─── RELATIONSHIP COUNTER ────────────────────────────────────────────────── */
+
 const START_DATE = new Date('2026-04-06T20:00:00');
 
 function updateTicker() {
@@ -292,13 +281,14 @@ function updateTicker() {
 updateTicker();
 setInterval(updateTicker, 1000);
 
-// ── SHOOTING STARS ────────────────────────────
+/* ─── SHOOTING STARS ──────────────────────────────────────────────────────── */
+
 function createStar() {
   const star = document.createElement('div');
   star.className = 'star';
 
   const startX = Math.random() * window.innerWidth;
-  const angle  = Math.random() * 30 + 20; // degrees downward
+  const angle  = Math.random() * 30 + 20;
   const dist   = Math.random() * 400 + 200;
   const rad    = (angle * Math.PI) / 180;
 
@@ -315,7 +305,6 @@ function createStar() {
   setTimeout(() => star.remove(), duration + 100);
 }
 
-// Fire a star every 3-6 seconds randomly
 function scheduleStar() {
   createStar();
   setTimeout(scheduleStar, Math.random() * 3000 + 3000);
@@ -323,7 +312,8 @@ function scheduleStar() {
 
 setTimeout(scheduleStar, 2000);
 
-// ── ENVELOPE ──────────────────────────────────
+/* ─── ENVELOPE ────────────────────────────────────────────────────────────── */
+
 function openEnvelope() {
   const flap   = document.getElementById('envFlap');
   const wrap   = document.getElementById('envelopeWrap');
@@ -338,9 +328,10 @@ function openEnvelope() {
     letter.style.display = 'inline-block';
     letter.classList.add('revealed');
   }, 900);
-    }
+}
 
-// ── EASTER EGG ENGINE ─────────────────────────
+/* ─── EASTER EGG ENGINE ───────────────────────────────────────────────────── */
+
 function showEgg(message, sub) {
   document.getElementById('eggMessage').textContent = message;
   document.getElementById('eggSub').textContent     = sub || '';
@@ -378,7 +369,7 @@ function burstHearts() {
 document.getElementById('ticker').addEventListener('click', () => {
   showEgg(
     'yes!! counting every second! 😭😭',
-    'and everyone one of them is yours 😋'
+    'and every one of them is yours 😋'
   );
 });
 
@@ -414,31 +405,7 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// ── EGG 4: Wrong password 3 times ────────────
-let wrongCount = 0;
-
-// Replace your existing checkPassword with this one
-function checkPassword() {
-  const val = document.getElementById('passwordInput').value.trim().toLowerCase();
-  const err = document.getElementById('passwordError');
-  if (val === PASSWORD.toLowerCase()) {
-    wrongCount = 0;
-    navigate('page-hub');
-  } else {
-    wrongCount++;
-    document.getElementById('passwordInput').value = '';
-    if (wrongCount >= 3) {
-      wrongCount = 0;
-      showEgg(
-        'dumbass, think harder 😭🙏🏻',
-        'shawarma. the answer is shawarma 💀'
-      );
-    } else {
-      err.classList.add('show');
-      setTimeout(() => err.classList.remove('show'), 2000);
-    }
-  }
-}
+// ── EGG 4: Wrong password 3x → handled in checkPassword() above ─────────────
 
 // ── EGG 5: Click music button 10 times ───────
 let musicClicks = 0;
@@ -456,11 +423,11 @@ document.getElementById('musicBtn').addEventListener('click', () => {
 }, true);
 
 // ── EGG 6: Hover letter 5 seconds ────────────
-let letterTimer;
+let letterHoverTimer;
 const letterFrame = document.getElementById('letterFrame');
 if (letterFrame) {
   letterFrame.addEventListener('mouseenter', () => {
-    letterTimer = setTimeout(() => {
+    letterHoverTimer = setTimeout(() => {
       showEgg(
         'go on, open it 😭 i wrote that for you',
         'for your eyes only 😇'
@@ -468,7 +435,7 @@ if (letterFrame) {
     }, 5000);
   });
   letterFrame.addEventListener('mouseleave', () => {
-    clearTimeout(letterTimer);
+    clearTimeout(letterHoverTimer);
   });
 }
 
@@ -501,3 +468,4 @@ function checkMidnight() {
 
 checkMidnight();
 setInterval(checkMidnight, 60000);
+      
