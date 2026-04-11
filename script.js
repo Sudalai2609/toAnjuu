@@ -1,17 +1,4 @@
-// ── PASSWORD ──────────────────────────────────
-const PASSWORD = "SHAWARMA"; // ← change this 
 
-function checkPassword() {
-  const val = document.getElementById('passwordInput').value.trim().toLowerCase();
-  const err = document.getElementById('passwordError');
-  if (val === PASSWORD.toLowerCase()) {
-    navigate('page-hub');
-  } else {
-    err.classList.add('show');
-    document.getElementById('passwordInput').value = '';
-    setTimeout(() => err.classList.remove('show'), 2000);
-  }
-}
 
 // Allow pressing Enter key too
 document.getElementById('passwordInput').addEventListener('keydown', e => {
