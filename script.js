@@ -60,6 +60,7 @@ const BUCKET_LIST = [
   "make hearts with our fingers and take photos",
   "take soo many photos together 😭😭",
   "give each other forehead kisses and kisses on cheek for no reason 😇",
+  "double date with dikshu and her bandar",
 ];
 
 const PROMISES = [
