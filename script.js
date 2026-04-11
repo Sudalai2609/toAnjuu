@@ -1,5 +1,5 @@
 // ── PASSWORD ──────────────────────────────────
-const PASSWORD = "FILLER_PASSWORD"; // ← change this 
+const PASSWORD = "SHAWARMA"; // ← change this 
 
 function checkPassword() {
   const val = document.getElementById('passwordInput').value.trim().toLowerCase();
@@ -37,16 +37,16 @@ const REASONS = [
 ];
 
 const BUCKET_LIST = [
-  "FILLER_BUCKET_1",
-  "FILLER_BUCKET_2",
-  "FILLER_BUCKET_3",
-  "FILLER_BUCKET_4",
-  "FILLER_BUCKET_5",
-  "FILLER_BUCKET_6",
-  "FILLER_BUCKET_7",
-  "FILLER_BUCKET_8",
-  "FILLER_BUCKET_9",
-  "FILLER_BUCKET_10",
+  "fall asleep into each others arms whilst stargazing 😭",
+  "watch the sunrise after staying up all night getting lost in your eyess 🎀",
+  "dance and soak together in the rainnn 😋",
+  "hold hands, buy you flowers and take you on a dateee 😭😭",
+  "go to a photobooth and have the day of our lives 😋",
+  "I cook while you yap with mee, then we'll both eat togetherrr",
+  "write each other love letter(s) 🎀",
+  "go to movies together!!",
+  "travel places together!!!! 😭",
+  "definitely (not) taste each other 😇",
 ];
 
 const PROMISES = [
