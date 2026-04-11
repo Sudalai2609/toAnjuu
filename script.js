@@ -106,9 +106,9 @@ const PROMISES = [
 
 const PLAYLIST = [
   { name: "what you're to me 💗", file: "song1.mp3" },
-  { name: "so did I", file: "song2.mp3" },
-  { name: "me and you", file: "song3.mp3" },
-  { name: "youuu!!", file: "song4.mp3" }
+  { name: "so did I😭", file: "song2.mp3" },
+  { name: "me and you🎀", file: "song3.mp3" },
+  { name: "youuu!!🛐", file: "song4.mp3" }
 ];
 
 let currentTrack = 0;
