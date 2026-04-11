@@ -1,6 +1,37 @@
+const PASSWORD = "SHAWARMA";
 
+/* ─── NAVIGATION ─────────────────────────────── */
+function navigate(targetId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById(targetId);
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
 
-// Allow pressing Enter key too
+/* ─── PASSWORD ────────────────────────────────── */
+let wrongCount = 0;
+
+function checkPassword() {
+  const val = document.getElementById('passwordInput').value.trim().toLowerCase();
+  const err = document.getElementById('passwordError');
+  if (val === PASSWORD.toLowerCase()) {
+    wrongCount = 0;
+    navigate('page-hub');
+  } else {
+    wrongCount++;
+    document.getElementById('passwordInput').value = '';
+    if (wrongCount >= 3) {
+      wrongCount = 0;
+      showEgg('dumbass, think harder 😭🙏🏻', 'shawarma. the answer is shawarma 💀');
+    } else {
+      err.classList.add('show');
+      setTimeout(() => err.classList.remove('show'), 2000);
+    }
+  }
+}
+
 document.getElementById('passwordInput').addEventListener('keydown', e => {
   if (e.key === 'Enter') checkPassword();
 });
