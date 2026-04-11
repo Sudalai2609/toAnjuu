@@ -240,3 +240,34 @@ function updateTicker() {
 
 updateTicker();
 setInterval(updateTicker, 1000);
+
+// ── SHOOTING STARS ────────────────────────────
+function createStar() {
+  const star = document.createElement('div');
+  star.className = 'star';
+
+  const startX = Math.random() * window.innerWidth;
+  const angle  = Math.random() * 30 + 20; // degrees downward
+  const dist   = Math.random() * 400 + 200;
+  const rad    = (angle * Math.PI) / 180;
+
+  star.style.left = startX + 'px';
+  star.style.top  = Math.random() * (window.innerHeight * 0.5) + 'px';
+  star.style.setProperty('--angle', angle + 'deg');
+  star.style.setProperty('--tx', dist * Math.cos(rad) + 'px');
+  star.style.setProperty('--ty', dist * Math.sin(rad) + 'px');
+
+  const duration = Math.random() * 1000 + 800;
+  star.style.animation = `shoot ${duration}ms ease-out forwards`;
+
+  document.body.appendChild(star);
+  setTimeout(() => star.remove(), duration + 100);
+}
+
+// Fire a star every 3-6 seconds randomly
+function scheduleStar() {
+  createStar();
+  setTimeout(scheduleStar, Math.random() * 3000 + 3000);
+}
+
+setTimeout(scheduleStar, 2000);
