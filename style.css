@@ -833,4 +833,63 @@ body {
 }
 
 .password-error.show { opacity: 1; }
-    
+
+/* ── COUNTER ─────────────────────────────────── */
+.counter-wrap {
+  margin: 8px 0 40px;
+  text-align: center;
+}
+
+.counter-label {
+  font-family: 'Crimson Pro', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: #f4a0ae;
+  opacity: 0.75;
+  margin-bottom: 14px;
+  letter-spacing: 0.1em;
+}
+
+.counter-ticker {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+}
+
+.ticker-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff0f;
+  border: 1px solid #ffffff1f;
+  border-radius: 16px;
+  padding: 14px 18px 10px;
+  min-width: 72px;
+  backdrop-filter: blur(12px);
+}
+
+.ticker-block span:first-child {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2rem;
+  color: #fde8ec;
+  line-height: 1;
+}
+
+.ticker-block small {
+  font-family: 'Crimson Pro', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #f4a0ae;
+  opacity: 0.6;
+  margin-top: 4px;
+}
+
+.ticker-sep {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  color: #c0112b;
+  padding-bottom: 14px;
+  opacity: 0.6;
+}
