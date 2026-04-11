@@ -1124,3 +1124,53 @@ body {
   cursor: pointer;
   padding: 4px 8px;
 }
+/* ── PLAYLIST UI ───────────────────────────── */
+.playlist-ui {
+  position: fixed;
+  bottom: 90px;
+  right: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 100;
+
+  /* hidden by default */
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.song-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-family: 'Crimson Pro', serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.song-btn:hover {
+  border-color: #c0112b66;
+  color: var(--blush);
+  transform: translateX(-2px);
+}
+
+.song-btn.active {
+  background: #8b000033;
+  border-color: #c0112b80;
+  color: var(--rose);
+  box-shadow: 0 0 20px #c0112b4c;
+}
+
+/* show on hover */
+.music-fab:hover + .playlist-ui,
+.playlist-ui:hover {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
