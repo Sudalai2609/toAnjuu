@@ -384,8 +384,8 @@ document.querySelector('.hub-title').addEventListener('click', () => {
     titleClicks = 0;
     burstHearts();
     setTimeout(() => showEgg(
-      'okay you found me out, im obsessed 😭',
-      'happy now anjana 😋'
+      'okay you found me, I LOVE YOU SO SO SO MUCH ANJUU!!!',
+      'happy now?? 😋'
     ), 600);
   }
 });
