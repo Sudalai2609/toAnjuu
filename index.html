@@ -114,18 +114,24 @@
         <div class="photo-card wide"><img src="photo5.png" alt=""><div class="photo-shimmer"></div></div>
         <div class="photo-card together"><img src="photo6.png" alt=""><div class="photo-shimmer"></div></div>
       </div>
-      <div class="letter-section">
-        <p class="letter-label">FILLER_LETTER_LABEL</p>
-        <div class="letter-frame">
-          <img src="letter.png" alt="Letter" class="letter-img">
-          <div class="letter-corner tl"></div>
-          <div class="letter-corner tr"></div>
-          <div class="letter-corner bl"></div>
-          <div class="letter-corner br"></div>
-        </div>
+<div class="letter-section">
+  <p class="letter-label">FILLER_LETTER_LABEL</p>
+  <div class="envelope-wrap" id="envelopeWrap" onclick="openEnvelope()">
+    <div class="envelope" id="envelope">
+      <div class="env-flap" id="envFlap"></div>
+      <div class="env-body">
+        <p class="env-hint">tap to open ♡</p>
       </div>
     </div>
-  </section>
+  </div>
+  <div class="letter-frame" id="letterFrame" style="display:none;">
+    <img src="letter.png" alt="Letter" class="letter-img">
+    <div class="letter-corner tl"></div>
+    <div class="letter-corner tr"></div>
+    <div class="letter-corner bl"></div>
+    <div class="letter-corner br"></div>
+  </div>
+</div>
 
   <!-- REASONS -->
   <section class="page" id="page-reasons">
