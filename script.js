@@ -105,16 +105,19 @@ const PROMISES = [
 /* ─── MUSIC ───────────────────────────────────────────────────────────────── */
 
 const PLAYLIST = [
-  { name: "Song 1", file: "song1.mp3" },
-  { name: "Song 2", file: "song2.mp3" },
-  { name: "Song 3", file: "song3.mp3" },
-  { name: "Song 4", file: "song4.mp3" }
+  { name: "what you're to me 💗", file: "song1.mp3" },
+  { name: "so did I", file: "song2.mp3" },
+  { name: "me and you", file: "song3.mp3" },
+  { name: "youuu!!", file: "song4.mp3" }
 ];
+
 let currentTrack = 0;
 
-const music    = document.getElementById('bgMusic');
-const musicBtn = document.getElementById('musicBtn');
+const music       = document.getElementById('bgMusic');
+const musicSource = document.getElementById('musicSource');
+const musicBtn    = document.getElementById('musicBtn');
 
+/* ── UI STATE ── */
 function setMusicState(playing) {
   if (playing) {
     musicBtn.textContent = '❚❚';
@@ -125,27 +128,65 @@ function setMusicState(playing) {
   }
 }
 
+/* ── LOAD TRACK ── */
 function loadTrack(index) {
-  document.getElementById('musicSource').src = PLAYLIST[index];
+  musicSource.src = PLAYLIST[index].file;   // FIXED
   music.load();
 }
 
+/* ── NEXT SONG ── */
 function playNext() {
   currentTrack = (currentTrack + 1) % PLAYLIST.length;
   loadTrack(currentTrack);
-  music.play().then(() => setMusicState(true)).catch(() => {});
+  music.play().then(() => {
+    setMusicState(true);
+    buildPlaylist();
+  }).catch(() => {});
 }
 
 music.addEventListener('ended', playNext);
 
+/* ── TOGGLE PLAY ── */
 musicBtn.addEventListener('click', () => {
-  if (music.paused) { music.play(); setMusicState(true); }
-  else              { music.pause(); setMusicState(false); }
+  if (music.paused) {
+    music.play().then(() => setMusicState(true)).catch(() => {});
+  } else {
+    music.pause();
+    setMusicState(false);
+  }
 });
 
+/* ── AUTOPLAY UNLOCK (first interaction) ── */
 window.addEventListener('click', () => {
-  if (music.paused) { music.play().then(() => setMusicState(true)).catch(() => {}); }
+  if (music.paused) {
+    music.play().then(() => setMusicState(true)).catch(() => {});
+  }
 }, { once: true });
+
+/* ── PLAYLIST UI ── */
+function buildPlaylist() {
+  const container = document.getElementById('playlistUI');
+  container.innerHTML = '';
+
+  PLAYLIST.forEach((song, i) => {
+    const btn = document.createElement('div');
+    btn.className = 'song-btn' + (i === currentTrack ? ' active' : '');
+    btn.textContent = song.name;
+
+    btn.addEventListener('click', () => {
+      currentTrack = i;
+      loadTrack(i);
+      music.play().then(() => setMusicState(true)).catch(() => {});
+      buildPlaylist();
+    });
+
+    container.appendChild(btn);
+  });
+}
+
+/* ── INIT ── */
+loadTrack(currentTrack);
+buildPlaylist();
 
 /* ─── REASONS ─────────────────────────────────────────────────────────────── */
 
