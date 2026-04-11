@@ -271,3 +271,20 @@ function scheduleStar() {
 }
 
 setTimeout(scheduleStar, 2000);
+
+// ── ENVELOPE ──────────────────────────────────
+function openEnvelope() {
+  const flap   = document.getElementById('envFlap');
+  const wrap   = document.getElementById('envelopeWrap');
+  const letter = document.getElementById('letterFrame');
+
+  if (flap.classList.contains('open')) return;
+
+  flap.classList.add('open');
+
+  setTimeout(() => {
+    wrap.style.display = 'none';
+    letter.style.display = 'inline-block';
+    letter.classList.add('revealed');
+  }, 900);
+    }
