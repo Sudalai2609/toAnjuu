@@ -11,6 +11,22 @@
 </head>
 <body>
 
+  <!-- EASTER EGG OVERLAY -->
+<div class="egg-overlay" id="eggOverlay" onclick="closeEgg()">
+  <div class="egg-popup" onclick="event.stopPropagation()">
+    <p class="egg-found">✦ you found a secret ✦</p>
+    <p class="egg-message" id="eggMessage">FILLER_EGG_MESSAGE</p>
+    <p class="egg-sub" id="eggSub">FILLER_EGG_SUB</p>
+    <button class="egg-close" onclick="closeEgg()">close ♡</button>
+  </div>
+</div>
+
+<!-- MIDNIGHT BANNER -->
+<div class="midnight-banner" id="midnightBanner">
+  FILLER_MIDNIGHT_MESSAGE
+  <button class="midnight-close" onclick="this.parentElement.classList.remove('show')">×</button>
+</div>
+
   <section class="page active" id="page-password">
   <div class="password-wrap">
     <div class="password-box">
