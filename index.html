@@ -11,6 +11,20 @@
 </head>
 <body>
 
+  <section class="page active" id="page-password">
+  <div class="password-wrap">
+    <div class="password-box">
+      <p class="password-eyebrow">only you know this</p>
+      <h2 class="password-title">what's our word?</h2>
+      <div class="password-input-wrap">
+        <input type="password" id="passwordInput" class="password-input" placeholder="···" autocomplete="off"/>
+        <button class="password-btn" onclick="checkPassword()">→</button>
+      </div>
+      <p class="password-error" id="passwordError">try again, love ♡</p>
+    </div>
+  </div>
+  </section>
+
   <div class="particles" id="particles"></div>
 
   <audio id="bgMusic" loop>
@@ -19,7 +33,7 @@
   <button class="music-fab" id="musicBtn" title="Toggle music">♪</button>
 
   <!-- HUB -->
-  <section class="page active" id="page-hub">
+  <section class="page" id="page-hub">
     <div class="hub-bg-shapes">
       <div class="shape shape-circle-lg"></div>
       <div class="shape shape-petal-1"></div>
