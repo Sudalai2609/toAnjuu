@@ -183,6 +183,20 @@ function buildPlaylist() {
     container.appendChild(btn);
   });
 }
+const playlistUI = document.getElementById('playlistUI');
+
+musicBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // prevent closing instantly
+
+  playlistUI.classList.toggle('show');
+
+  if (music.paused) {
+    music.play().then(() => setMusicState(true)).catch(() => {});
+  } else {
+    music.pause();
+    setMusicState(false);
+  }
+});
 
 /* ── INIT ── */
 loadTrack(currentTrack);
