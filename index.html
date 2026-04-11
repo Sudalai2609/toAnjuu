@@ -3,56 +3,147 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>To mon Cherrie 🎀</title>
+  <title>FILLER_SITE_TITLE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Serif+Display:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="hearts" id="hearts"></div>
+  <div class="particles" id="particles"></div>
 
-  <section class="main-page">
-    <div class="card">
-      <h1>fillerTitle</h1>
-      <p class="subtitle">fillerSubtitle</p>
+  <audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+  <button class="music-fab" id="musicBtn" title="Toggle music">♪</button>
 
-      <div class="counter" id="counter">Reason #1</div>
-
-      <div class="reason-box show" id="reasonBox">
-        filler1
+  <!-- HUB -->
+  <section class="page active" id="page-hub">
+    <div class="hub-bg-shapes">
+      <div class="shape shape-circle-lg"></div>
+      <div class="shape shape-petal-1"></div>
+      <div class="shape shape-petal-2"></div>
+      <div class="shape shape-ring"></div>
+    </div>
+    <div class="hub-content">
+      <div class="hub-header">
+        <p class="hub-eyebrow">FILLER_EYEBROW</p>
+        <h1 class="hub-title">FILLER_MAIN_TITLE</h1>
+        <p class="hub-sub">FILLER_SUBTITLE</p>
       </div>
-
-      <button class="reason-btn" onclick="nextReason()">
-        Show Me Another Reason ❤
-      </button>
-
-      <div class="music-controls">
-        <button id="musicBtn">▶ Play Our Song</button>
+      <div class="portals">
+        <button class="portal" data-target="page-photos" style="--i:0">
+          <div class="portal-icon">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="28" rx="4" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="22" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M6 32l10-8 8 6 6-5 12 9" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="portal-label">FILLER_PORTAL_1</span>
+          <span class="portal-sub">FILLER_PORTAL_1_SUB</span>
+          <div class="portal-glow"></div>
+        </button>
+        <button class="portal" data-target="page-reasons" style="--i:1">
+          <div class="portal-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M24 40s-16-10-16-20a10 10 0 0120 0 10 10 0 0120 0c0 10-16 20-16 20" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="portal-label">FILLER_PORTAL_2</span>
+          <span class="portal-sub">FILLER_PORTAL_2_SUB</span>
+          <div class="portal-glow"></div>
+        </button>
+        <button class="portal" data-target="page-bucket" style="--i:2">
+          <div class="portal-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M8 14h32M8 22h24M8 30h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="38" cy="34" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M35 34l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="portal-label">FILLER_PORTAL_3</span>
+          <span class="portal-sub">FILLER_PORTAL_3_SUB</span>
+          <div class="portal-glow"></div>
+        </button>
+        <button class="portal" data-target="page-promises" style="--i:3">
+          <div class="portal-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M16 26c0 0 2 4 8 4s8-4 8-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="1.5"/><path d="M18 20c1-3 3-4 6-4s5 1 6 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <span class="portal-label">FILLER_PORTAL_4</span>
+          <span class="portal-sub">FILLER_PORTAL_4_SUB</span>
+          <div class="portal-glow"></div>
+        </button>
       </div>
-
-      <audio id="bgMusic" loop>
-        <source src="song.mp3" type="audio/mpeg">
-      </audio>
-
-      <div class="secret" id="secretMessage">
-        fillerSecret
-      </div>
-
-      <p class="bottom-text">fillerBottom</p>
+      <p class="hub-footer">FILLER_FOOTER_TEXT</p>
     </div>
   </section>
 
-  <section class="gallery-page">
-    <h2>Our Favourite Moments</h2>
+  <!-- PHOTOS -->
+  <section class="page" id="page-photos">
+    <div class="page-inner">
+      <button class="back-btn" onclick="navigate('page-hub')">← back</button>
+      <div class="page-header">
+        <p class="page-eyebrow">FILLER_PHOTOS_EYEBROW</p>
+        <h2 class="page-title">FILLER_PHOTOS_TITLE</h2>
+      </div>
+      <div class="photo-layout">
+        <div class="photo-card big"><img src="photo1.png" alt=""><div class="photo-shimmer"></div></div>
+        <div class="photo-card small"><img src="photo2.png" alt=""><div class="photo-shimmer"></div></div>
+        <div class="photo-card small"><img src="photo3.png" alt=""><div class="photo-shimmer"></div></div>
+        <div class="photo-card small"><img src="photo4.png" alt=""><div class="photo-shimmer"></div></div>
+        <div class="photo-card wide"><img src="photo5.png" alt=""><div class="photo-shimmer"></div></div>
+        <div class="photo-card together"><img src="photo6.png" alt=""><div class="photo-shimmer"></div></div>
+      </div>
+      <div class="letter-section">
+        <p class="letter-label">FILLER_LETTER_LABEL</p>
+        <div class="letter-frame">
+          <img src="letter.png" alt="Letter" class="letter-img">
+          <div class="letter-corner tl"></div>
+          <div class="letter-corner tr"></div>
+          <div class="letter-corner bl"></div>
+          <div class="letter-corner br"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <div class="photo-layout">
-      <div class="photo big"><img src="photo1.png" alt=""></div>
-      <div class="photo small top"><img src="photo2.png" alt=""></div>
-      <div class="photo small middle"><img src="photo3.png" alt=""></div>
-      <div class="photo small bottom"><img src="photo4.png" alt=""></div>
-      <div class="photo wide"><img src="photo5.png" alt=""></div>
+  <!-- REASONS -->
+  <section class="page" id="page-reasons">
+    <div class="page-inner reasons-inner">
+      <button class="back-btn" onclick="navigate('page-hub')">← back</button>
+      <div class="page-header">
+        <p class="page-eyebrow">FILLER_REASONS_EYEBROW</p>
+        <h2 class="page-title">FILLER_REASONS_TITLE</h2>
+      </div>
+      <div class="reasons-card">
+        <div class="reasons-counter" id="counter">Reason #1</div>
+        <div class="reasons-box" id="reasonBox">FILLER_REASON_1</div>
+        <button class="reason-btn" onclick="nextReason()">FILLER_REASON_BTN ❤</button>
+        <div class="secret-msg" id="secretMessage">FILLER_SECRET_MESSAGE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUCKET LIST -->
+  <section class="page" id="page-bucket">
+    <div class="page-inner">
+      <button class="back-btn" onclick="navigate('page-hub')">← back</button>
+      <div class="page-header">
+        <p class="page-eyebrow">FILLER_BUCKET_EYEBROW</p>
+        <h2 class="page-title">FILLER_BUCKET_TITLE</h2>
+        <p class="page-desc">FILLER_BUCKET_DESC</p>
+      </div>
+      <div class="bucket-list" id="bucketList"></div>
+    </div>
+  </section>
+
+  <!-- PROMISES -->
+  <section class="page" id="page-promises">
+    <div class="page-inner">
+      <button class="back-btn" onclick="navigate('page-hub')">← back</button>
+      <div class="page-header">
+        <p class="page-eyebrow">FILLER_PROMISES_EYEBROW</p>
+        <h2 class="page-title">FILLER_PROMISES_TITLE</h2>
+        <p class="page-desc">FILLER_PROMISES_DESC</p>
+      </div>
+      <div class="promises-grid" id="promisesGrid"></div>
+      <p class="promises-sign">FILLER_SIGNATURE</p>
     </div>
   </section>
 
   <script src="script.js"></script>
 </body>
-  </html>
+                                                                                              </html>
+                                                                                              
