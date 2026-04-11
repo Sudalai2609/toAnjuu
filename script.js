@@ -219,3 +219,24 @@ setInterval(createParticle, 400);
 for (let i = 0; i < 8; i++) {
   setTimeout(createParticle, i * 100);
 }
+
+// ── RELATIONSHIP COUNTER ──────────────────────
+const START_DATE = new Date('2026-04-06T20:00:00');
+
+function updateTicker() {
+  const now  = new Date();
+  const diff = Math.max(0, now - START_DATE);
+
+  const secs  = Math.floor(diff / 1000) % 60;
+  const mins  = Math.floor(diff / 60000) % 60;
+  const hours = Math.floor(diff / 3600000) % 24;
+  const days  = Math.floor(diff / 86400000);
+
+  document.getElementById('t-days').textContent  = days;
+  document.getElementById('t-hours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('t-mins').textContent  = String(mins).padStart(2, '0');
+  document.getElementById('t-secs').textContent  = String(secs).padStart(2, '0');
+}
+
+updateTicker();
+setInterval(updateTicker, 1000);
