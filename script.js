@@ -288,3 +288,165 @@ function openEnvelope() {
     letter.classList.add('revealed');
   }, 900);
     }
+
+// ── EASTER EGG ENGINE ─────────────────────────
+function showEgg(message, sub) {
+  document.getElementById('eggMessage').textContent = message;
+  document.getElementById('eggSub').textContent     = sub || '';
+  document.getElementById('eggOverlay').classList.add('show');
+  burstHearts();
+}
+
+function closeEgg() {
+  document.getElementById('eggOverlay').classList.remove('show');
+}
+
+function burstHearts() {
+  const emojis = ['❤', '🌹', '✦', '❋', '♡'];
+  for (let i = 0; i < 30; i++) {
+    setTimeout(() => {
+      const h = document.createElement('div');
+      h.className = 'burst-heart';
+      h.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      const angle = Math.random() * 360;
+      const dist  = Math.random() * 300 + 100;
+      const rad   = (angle * Math.PI) / 180;
+      h.style.left = '50vw';
+      h.style.top  = '50vh';
+      h.style.setProperty('--bx', dist * Math.cos(rad) + 'px');
+      h.style.setProperty('--by', dist * Math.sin(rad) + 'px');
+      h.style.setProperty('--br', (Math.random() * 60 - 30) + 'deg');
+      h.style.animationDuration = (Math.random() * 600 + 800) + 'ms';
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 1500);
+    }, i * 40);
+  }
+}
+
+// ── EGG 1: Click counter ──────────────────────
+document.getElementById('ticker').addEventListener('click', () => {
+  showEgg(
+    'FILLER_COUNTER_EGG_MESSAGE',
+    'FILLER_COUNTER_EGG_SUB'
+  );
+});
+
+// ── EGG 2: Click hub title 5 times ───────────
+let titleClicks = 0;
+let titleTimer;
+document.querySelector('.hub-title').addEventListener('click', () => {
+  titleClicks++;
+  clearTimeout(titleTimer);
+  titleTimer = setTimeout(() => titleClicks = 0, 2000);
+  if (titleClicks >= 5) {
+    titleClicks = 0;
+    burstHearts();
+    setTimeout(() => showEgg(
+      'FILLER_TITLE_EGG_MESSAGE',
+      'FILLER_TITLE_EGG_SUB'
+    ), 600);
+  }
+});
+
+// ── EGG 3: Type her name anywhere ────────────
+let nameBuffer = '';
+const HER_NAME = 'anjana';
+document.addEventListener('keydown', e => {
+  nameBuffer += e.key.toLowerCase();
+  nameBuffer  = nameBuffer.slice(-HER_NAME.length);
+  if (nameBuffer === HER_NAME) {
+    nameBuffer = '';
+    showEgg(
+      'FILLER_NAME_EGG_MESSAGE',
+      'FILLER_NAME_EGG_SUB'
+    );
+  }
+});
+
+// ── EGG 4: Wrong password 3 times ────────────
+let wrongCount = 0;
+
+// Replace your existing checkPassword with this one
+function checkPassword() {
+  const val = document.getElementById('passwordInput').value.trim().toLowerCase();
+  const err = document.getElementById('passwordError');
+  if (val === PASSWORD.toLowerCase()) {
+    wrongCount = 0;
+    navigate('page-hub');
+  } else {
+    wrongCount++;
+    document.getElementById('passwordInput').value = '';
+    if (wrongCount >= 3) {
+      wrongCount = 0;
+      showEgg(
+        'FILLER_WRONG_PASSWORD_EGG_MESSAGE',
+        'FILLER_WRONG_PASSWORD_EGG_SUB'
+      );
+    } else {
+      err.classList.add('show');
+      setTimeout(() => err.classList.remove('show'), 2000);
+    }
+  }
+}
+
+// ── EGG 5: Click music button 10 times ───────
+let musicClicks = 0;
+let musicEggDone = false;
+document.getElementById('musicBtn').addEventListener('click', () => {
+  if (musicEggDone) return;
+  musicClicks++;
+  if (musicClicks >= 10) {
+    musicEggDone = true;
+    showEgg(
+      'FILLER_MUSIC_EGG_MESSAGE',
+      'FILLER_MUSIC_EGG_SUB'
+    );
+  }
+}, true);
+
+// ── EGG 6: Hover letter 5 seconds ────────────
+let letterTimer;
+const letterFrame = document.getElementById('letterFrame');
+if (letterFrame) {
+  letterFrame.addEventListener('mouseenter', () => {
+    letterTimer = setTimeout(() => {
+      showEgg(
+        'FILLER_LETTER_EGG_MESSAGE',
+        'FILLER_LETTER_EGG_SUB'
+      );
+    }, 5000);
+  });
+  letterFrame.addEventListener('mouseleave', () => {
+    clearTimeout(letterTimer);
+  });
+}
+
+// ── EGG 7: Triple click big photo ────────────
+let photoClicks = 0;
+let photoTimer;
+const bigPhoto = document.querySelector('.photo-card.big');
+if (bigPhoto) {
+  bigPhoto.addEventListener('click', () => {
+    photoClicks++;
+    clearTimeout(photoTimer);
+    photoTimer = setTimeout(() => photoClicks = 0, 800);
+    if (photoClicks >= 3) {
+      photoClicks = 0;
+      showEgg(
+        'FILLER_PHOTO_EGG_MESSAGE',
+        'FILLER_PHOTO_EGG_SUB'
+      );
+    }
+  });
+}
+
+// ── EGG 8: Midnight message ───────────────────
+function checkMidnight() {
+  const now = new Date();
+  if (now.getHours() === 0) {
+    document.getElementById('midnightBanner').classList.add('show');
+  }
+}
+
+checkMidnight();
+setInterval(checkMidnight, 60000);
