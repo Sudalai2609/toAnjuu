@@ -94,6 +94,9 @@ document.querySelectorAll('.portal[data-target]').forEach(btn => {
 
 /* ─── MUSIC ───────────────────────────────────────────────────────────────── */
 
+const PLAYLIST = ['song1.mp3', 'song2.mp3', 'song3.mp3', 'song4.mp3'];
+let currentTrack = 0;
+
 const music    = document.getElementById('bgMusic');
 const musicBtn = document.getElementById('musicBtn');
 
@@ -106,6 +109,20 @@ function setMusicState(playing) {
     musicBtn.classList.remove('playing');
   }
 }
+
+function loadTrack(index) {
+  document.getElementById('musicSource').src = PLAYLIST[index];
+  music.load();
+}
+
+function playNext() {
+  currentTrack = (currentTrack + 1) % PLAYLIST.length;
+  loadTrack(currentTrack);
+  music.play().then(() => setMusicState(true)).catch(() => {});
+}
+
+// Auto advance to next song
+music.addEventListener('ended', playNext);
 
 musicBtn.addEventListener('click', () => {
   if (music.paused) { music.play(); setMusicState(true); }
