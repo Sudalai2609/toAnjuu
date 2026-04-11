@@ -341,8 +341,8 @@ function burstHearts() {
 // ── EGG 1: Click counter ──────────────────────
 document.getElementById('ticker').addEventListener('click', () => {
   showEgg(
-    'FILLER_COUNTER_EGG_MESSAGE',
-    'FILLER_COUNTER_EGG_SUB'
+    'yes!! counting every second! 😭😭',
+    'and everyone one of them is yours 😋'
   );
 });
 
@@ -357,8 +357,8 @@ document.querySelector('.hub-title').addEventListener('click', () => {
     titleClicks = 0;
     burstHearts();
     setTimeout(() => showEgg(
-      'FILLER_TITLE_EGG_MESSAGE',
-      'FILLER_TITLE_EGG_SUB'
+      'okay you found me out, im obsessed 😭',
+      'happy now anjana 😋'
     ), 600);
   }
 });
@@ -372,8 +372,8 @@ document.addEventListener('keydown', e => {
   if (nameBuffer === HER_NAME) {
     nameBuffer = '';
     showEgg(
-      'FILLER_NAME_EGG_MESSAGE',
-      'FILLER_NAME_EGG_SUB'
+      'yes this is all for youuu 😭😭',
+      '🎀💗'
     );
   }
 });
@@ -394,8 +394,8 @@ function checkPassword() {
     if (wrongCount >= 3) {
       wrongCount = 0;
       showEgg(
-        'FILLER_WRONG_PASSWORD_EGG_MESSAGE',
-        'FILLER_WRONG_PASSWORD_EGG_SUB'
+        'dumbass, think harder 😭🙏🏻',
+        'shawarma. the answer is shawarma 💀'
       );
     } else {
       err.classList.add('show');
@@ -413,8 +413,8 @@ document.getElementById('musicBtn').addEventListener('click', () => {
   if (musicClicks >= 10) {
     musicEggDone = true;
     showEgg(
-      'FILLER_MUSIC_EGG_MESSAGE',
-      'FILLER_MUSIC_EGG_SUB'
+      'BE MY BABYYYY!',
+      'for every kiss you give me, i will give you three'
     );
   }
 }, true);
@@ -426,8 +426,8 @@ if (letterFrame) {
   letterFrame.addEventListener('mouseenter', () => {
     letterTimer = setTimeout(() => {
       showEgg(
-        'FILLER_LETTER_EGG_MESSAGE',
-        'FILLER_LETTER_EGG_SUB'
+        'go on, open it 😭 i wrote that for you',
+        'for your eyes only 😇'
       );
     }, 5000);
   });
@@ -448,8 +448,8 @@ if (bigPhoto) {
     if (photoClicks >= 3) {
       photoClicks = 0;
       showEgg(
-        'FILLER_PHOTO_EGG_MESSAGE',
-        'FILLER_PHOTO_EGG_SUB'
+        'caught you staring 😇',
+        'same tbh 😭'
       );
     }
   });
