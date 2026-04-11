@@ -104,7 +104,12 @@ const PROMISES = [
 
 /* ─── MUSIC ───────────────────────────────────────────────────────────────── */
 
-const PLAYLIST = ['song1.mp3', 'song2.mp3', 'song3.mp3', 'song4.mp3'];
+const PLAYLIST = [
+  { name: "Song 1", file: "song1.mp3" },
+  { name: "Song 2", file: "song2.mp3" },
+  { name: "Song 3", file: "song3.mp3" },
+  { name: "Song 4", file: "song4.mp3" }
+];
 let currentTrack = 0;
 
 const music    = document.getElementById('bgMusic');
