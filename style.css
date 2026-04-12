@@ -82,9 +82,56 @@ body {
   animation: pulse-ring 2s ease-in-out infinite;
 }
 
+.music-wrapper {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+}
+
 @keyframes pulse-ring {
   0%, 100% { box-shadow: 0 0 20px #c0112b4c; }
   50%       { box-shadow: 0 0 40px #c0112bb2, 0 0 60px #c0112b33; }
+}
+
+.playlist-ui {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+
+  min-width: 180px;
+  padding: 10px;
+
+  background: #2a0b13;
+  border: 1px solid #ffffff15;
+  border-radius: 14px;
+
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.song-btn {
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  font-size: 0.9rem;
+  color: #f4a0ae;
+
+  transition: all 0.2s ease;
+}
+
+.song-btn:hover {
+  background: #5a1c2c;
+  transform: scale(1.02);
+}
+
+.song-btn.active {
+  background: #a63a5a;
+  color: white;
 }
 
 /* ── PAGES ────────────────────────────────────── */
