@@ -146,6 +146,11 @@ function startMusic() {
   music.play().then(() => setState()).catch(() => {});
 }
 
+/* unlock on first click */
+window.addEventListener('click', function init() {
+  startMusic();
+  window.removeEventListener('click', init);
+});
 document.addEventListener('DOMContentLoaded', () => {
   startMusic();
 });
@@ -165,13 +170,13 @@ function buildPlaylist() {
     el.className = 'song-btn' + (i === currentTrack ? ' active' : '');
     el.textContent = song.name;
 
-    el.onclick = () => {
+    el.addEventListener('click', () => {
   currentTrack = i;
   loadTrack(i);
   playTrack();
   buildPlaylist();
   playlistUI.classList.remove('show');
-};
+});
 
     playlistUI.appendChild(el);
   });
