@@ -86,7 +86,8 @@ const BUCKET_LIST = [
   "make hearts with our fingers and take photos",
   "take soo many photos together 😭😭",
   "give each other forehead kisses and kisses on cheek for no reason 😇",
-  "double date with dikshu and her bandar",
+  "double date with dikshu and her banda",
+  "go to countries together!!",
 ];
 
 const PROMISES = [
@@ -220,7 +221,8 @@ document.getElementById('reasonBox').classList.add('show');
 
 /* ─── BUCKET LIST ─────────────────────────────────────────────────────────── */
 
-const bucketDone = new Set();
+const savedBucket = JSON.parse(localStorage.getItem('bucketDone') || '[]');
+const bucketDone = new Set(savedBucket);
 
 function buildBucketList() {
   const container = document.getElementById('bucketList');
@@ -237,6 +239,7 @@ function buildBucketList() {
     el.addEventListener('click', () => {
       if (bucketDone.has(i)) bucketDone.delete(i);
       else                   bucketDone.add(i);
+      localStorage.setItem('bucketDone', JSON.stringify([...bucketDone]));
       buildBucketList();
     });
     container.appendChild(el);
