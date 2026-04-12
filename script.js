@@ -88,6 +88,7 @@ const BUCKET_LIST = [
   "give each other forehead kisses and kisses on cheek for no reason 😇",
   "double date with dikshu and her banda",
   "go to countries together!!",
+  "definitely (not) say I'm gonna pin you to a wall and kiss you on call/voicenote 😇",
 ];
 
 const PROMISES = [
