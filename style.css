@@ -315,7 +315,7 @@ body {
   position: absolute;
   width: 120px; height: 120px;
   border-radius: 50%;
-  background: radial-gradient(circle, #c0112b40, transparent 70%);
+  background: linear-gradient(135deg, #c0112b40, transparent 70%);
   bottom: -40px; right: -20px;
   transition: all 0.5s;
   opacity: 0;
