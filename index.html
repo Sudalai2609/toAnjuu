@@ -219,7 +219,26 @@ P.S. would do a million times over</p>
       <p class="promises-sign">yours most down bad, Sudalai 🎀</p>
     </div>
   </section>
-
+  
+  <!-- LOCKED PORTAL POPUP -->
+  <div class="locked-popup" id="lockedPopup" onclick="closeLockedPopup()">
+    <div class="locked-box" onclick="event.stopPropagation()">
+      <p class="locked-title">🔒 april 4, 2027</p>
+      <p class="locked-msg">patience, mon chéri 😋</p>
+      <div class="locked-countdown">
+        <div class="locked-block"><span id="l-days">0</span><small>days</small></div>
+        <span class="locked-sep">:</span>
+        <div class="locked-block"><span id="l-hours">00</span><small>hrs</small></div>
+        <span class="locked-sep">:</span>
+        <div class="locked-block"><span id="l-mins">00</span><small>mins</small></div>
+        <span class="locked-sep">:</span>
+        <div class="locked-block"><span id="l-secs">00</span><small>secs</small></div>
+      </div>
+      <p class="locked-msg" id="lockedDaysLine"></p>
+      <button class="locked-close" onclick="closeLockedPopup()">close ♡</button>
+    </div>
+  </div>
+  
   <script src="script.js"></script>
 </body>
                                                                                               </html>
