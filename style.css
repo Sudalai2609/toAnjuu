@@ -1301,46 +1301,39 @@ body {
 }
 /* ── INDIVIDUAL PORTAL STYLES ─────────────────── */
 
-/* 📸 you, and us */
 .portal[data-target="page-photos"] {
-  background: linear-gradient(135deg, #1a00081a, #f4a0ae0d) !important;
-  border-color: #f4a0ae33 !important;
+  background: linear-gradient(135deg, #2a0a1a, #f4a0ae15) !important;
+  border-color: #f4a0ae55 !important;
 }
-.portal[data-target="page-photos"] .portal-icon { color: #f4a0ae; }
+.portal[data-target="page-photos"] .portal-icon { color: #f4a0ae !important; }
 
-/* ❤️ you, specifically */
 .portal[data-target="page-reasons"] {
-  background: linear-gradient(135deg, #1a00081a, #e8405a0d) !important;
-  border-color: #e8405a33 !important;
+  background: linear-gradient(135deg, #2a0008, #e8405a15) !important;
+  border-color: #e8405a55 !important;
 }
-.portal[data-target="page-reasons"] .portal-icon { color: #e8405a; }
+.portal[data-target="page-reasons"] .portal-icon { color: #e8405a !important; }
 
-/* 💅 our somedays */
 .portal[data-target="page-bucket"] {
-  background: linear-gradient(135deg, #1a00081a, #c0112b0d) !important;
-  border-color: #c0112b33 !important;
+  background: linear-gradient(135deg, #1a0008, #c0112b20) !important;
+  border-color: #c0112b55 !important;
 }
-.portal[data-target="page-bucket"] .portal-icon { color: #c0112b; }
+.portal[data-target="page-bucket"] .portal-icon { color: #c0112b !important; }
 
-/* 🤝 i swear */
 .portal[data-target="page-promises"] {
-  background: linear-gradient(135deg, #1a00081a, #8b00000d) !important;
-  border-color: #8b000044 !important;
+  background: linear-gradient(135deg, #0d0005, #8b000025) !important;
+  border-color: #8b000066 !important;
 }
-.portal[data-target="page-promises"] .portal-icon { color: #c0112b; }
+.portal[data-target="page-promises"] .portal-icon { color: #c0112b !important; }
 
-/* 🎂 april 4, 2026 */
 .portal-birthday {
-  background: linear-gradient(135deg, #1a00081a, #f4a0ae0d) !important;
-  border-color: #f4a0ae22 !important;
+  background: linear-gradient(135deg, #2a0a1a, #f4a0ae15) !important;
+  border-color: #f4a0ae44 !important;
 }
-.portal-birthday .portal-icon { color: #f4a0ae; }
+.portal-birthday .portal-icon { color: #f4a0ae !important; }
 
-/* 🔒 april 4, 2027 */
 .portal-locked {
-  background: linear-gradient(135deg, #1a00081a, #ffffff05) !important;
-  border-color: #ffffff11 !important;
-  filter: saturate(0.4);
-  opacity: 0.6;
+  background: linear-gradient(135deg, #0d0005, #1a000833) !important;
+  border-color: #ffffff18 !important;
+  filter: saturate(0.3) !important;
+  opacity: 0.55 !important;
 }
-.portal-locked .portal-icon { color: #fde8ec66; }
