@@ -359,11 +359,6 @@ body {
   filter: saturate(0.5);
   box-shadow: 0 10px 30px #00000044;
 }
-  opacity: 0.7;
-  filter: saturate(0.5);
-  box-shadow: 0 10px 30px #00000044;
-}
-
 .hub-footer {
   margin-top: 52px;
   font-family: 'Cormorant Garamond', serif;
