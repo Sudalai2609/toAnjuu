@@ -1298,42 +1298,33 @@ body {
 .locked-close:hover {
   background: #c0112b;
   border-color: #c0112b;
+/* ── PORTAL GRADIENT ─────────────────────────── */
+.portal {
+  background: linear-gradient(90deg,
+    #1a0008 0%,
+    #6b001a 25%,
+    #6b001a 75%,
+    #1a0008 100%) !important;
+  border-color: #c0112b44 !important;
 }
-/* ── INDIVIDUAL PORTAL STYLES ─────────────────── */
 
-.portal[data-target="page-photos"] {
-  background: linear-gradient(135deg, #2a0a1a, #f4a0ae15) !important;
-  border-color: #f4a0ae55 !important;
+.portal:hover {
+  background: linear-gradient(90deg,
+    #1a0008 0%,
+    #8b0022 25%,
+    #8b0022 75%,
+    #1a0008 100%) !important;
+  border-color: #c0112b88 !important;
+  box-shadow: 0 20px 60px #8b000059, 0 0 0 1px #c0112b33 !important;
 }
-.portal[data-target="page-photos"] .portal-icon { color: #f4a0ae !important; }
-
-.portal[data-target="page-reasons"] {
-  background: linear-gradient(135deg, #2a0008, #e8405a15) !important;
-  border-color: #e8405a55 !important;
-}
-.portal[data-target="page-reasons"] .portal-icon { color: #e8405a !important; }
-
-.portal[data-target="page-bucket"] {
-  background: linear-gradient(135deg, #1a0008, #c0112b20) !important;
-  border-color: #c0112b55 !important;
-}
-.portal[data-target="page-bucket"] .portal-icon { color: #c0112b !important; }
-
-.portal[data-target="page-promises"] {
-  background: linear-gradient(135deg, #0d0005, #8b000025) !important;
-  border-color: #8b000066 !important;
-}
-.portal[data-target="page-promises"] .portal-icon { color: #c0112b !important; }
-
-.portal-birthday {
-  background: linear-gradient(135deg, #2a0a1a, #f4a0ae15) !important;
-  border-color: #f4a0ae44 !important;
-}
-.portal-birthday .portal-icon { color: #f4a0ae !important; }
 
 .portal-locked {
-  background: linear-gradient(135deg, #0d0005, #1a000833) !important;
-  border-color: #ffffff18 !important;
-  filter: saturate(0.3) !important;
+  background: linear-gradient(90deg,
+    #0d0005 0%,
+    #1a000a 25%,
+    #1a000a 75%,
+    #0d0005 100%) !important;
+  border-color: #ffffff15 !important;
   opacity: 0.55 !important;
+  filter: saturate(0.3) !important;
 }
