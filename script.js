@@ -172,10 +172,11 @@ function buildPlaylist() {
 
     el.addEventListener('click', () => {
   currentTrack = i;
-  loadTrack(i);
+  loadTrack(currentTrack);
   playTrack();
-  buildPlaylist();
+
   playlistUI.classList.remove('show');
+  buildPlaylist();
 });
 
     playlistUI.appendChild(el);
