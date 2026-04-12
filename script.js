@@ -193,10 +193,15 @@ buildPlaylist();
 const nowPlaying = document.getElementById('nowPlaying');
 
 function showNowPlaying(index) {
+  if (!nowPlaying) return;
+
   nowPlaying.textContent = "Now playing: " + PLAYLIST[index].name;
+
   nowPlaying.classList.add('show');
 
-  setTimeout(() => {
+  clearTimeout(nowPlaying._t);
+
+  nowPlaying._t = setTimeout(() => {
     nowPlaying.classList.remove('show');
   }, 2500);
 }
