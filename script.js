@@ -131,7 +131,6 @@ function setState() {
 function playTrack() {
   music.play().then(() => {
     setState(true);
-    showNowPlaying(currentTrack);
   }).catch(() => {});
 }
 
@@ -189,22 +188,6 @@ function buildPlaylist() {
 /* ---------- INIT ---------- */
 loadTrack(currentTrack);
 buildPlaylist();
-
-const nowPlaying = document.getElementById('nowPlaying');
-
-function showNowPlaying(index) {
-  if (!nowPlaying) return;
-
-  nowPlaying.textContent = "Now playing: " + PLAYLIST[index].name;
-
-  nowPlaying.classList.add('show');
-
-  clearTimeout(nowPlaying._t);
-
-  nowPlaying._t = setTimeout(() => {
-    nowPlaying.classList.remove('show');
-  }, 2500);
-}
 
 
 /* ─── REASONS ─────────────────────────────────────────────────────────────── */
