@@ -1,3 +1,4 @@
+/* ── VARIABLES ────────────────────────────────── */
 :root {
   --cherry:    #8b0000;
   --crimson:   #c0112b;
@@ -12,6 +13,7 @@
   --text-mute: #fde8ec99;
 }
 
+/* ── RESET ────────────────────────────────────── */
 *, *::before, *::after {
   margin: 0; padding: 0;
   box-sizing: border-box;
@@ -107,7 +109,6 @@ body {
 
 #page-hub.active { display: flex; }
 
-/* Background shapes */
 .hub-bg-shapes {
   position: absolute;
   inset: 0;
@@ -166,7 +167,6 @@ body {
   to   { transform: rotate(360deg); }
 }
 
-/* Hub content */
 .hub-content {
   position: relative;
   z-index: 2;
@@ -215,7 +215,7 @@ body {
   opacity: 0.85;
 }
 
-/* Portals grid */
+/* ── PORTALS ──────────────────────────────────── */
 .portals {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -227,8 +227,8 @@ body {
 
 .portal {
   position: relative;
-  background: var(--card-bg);
-  border: 1px solid var(--border);
+  background: linear-gradient(90deg, #0d0005 0%, #7a1530 25%, #7a1530 75%, #0d0005 100%);
+  border: 1px solid #c0112b44;
   backdrop-filter: blur(24px);
   border-radius: 28px;
   padding: 36px 24px 30px;
@@ -256,7 +256,8 @@ body {
 
 .portal:hover {
   transform: translateY(-8px) scale(1.02);
-  border-color: #c0112b66;
+  background: linear-gradient(90deg, #0d0005 0%, #a01840 25%, #a01840 75%, #0d0005 100%);
+  border-color: #c0112b88;
   box-shadow: 0 20px 60px #8b000059, 0 0 0 1px #c0112b33;
 }
 
@@ -297,6 +298,21 @@ body {
 }
 
 .portal:hover .portal-glow { opacity: 1; transform: scale(1.6); }
+
+/* locked portal */
+.portal-locked {
+  background: linear-gradient(90deg, #080003 0%, #0f0008 25%, #0f0008 75%, #080003 100%);
+  border-color: #ffffff15;
+  opacity: 0.55;
+  filter: saturate(0.3);
+}
+
+.portal-locked:hover {
+  background: linear-gradient(90deg, #080003 0%, #150010 25%, #150010 75%, #080003 100%);
+  opacity: 0.7;
+  filter: saturate(0.5);
+  box-shadow: 0 10px 30px #00000044;
+}
 
 .hub-footer {
   margin-top: 52px;
@@ -415,12 +431,11 @@ body {
   50%       { background-position: 0% 0%; }
 }
 
-.photo-card.big   { grid-row: 1 / 3; }
-.photo-card.small { }
-.photo-card.wide  { grid-column: 2 / 4; }
+.photo-card.big      { grid-row: 1 / 3; }
+.photo-card.wide     { grid-column: 2 / 4; }
 .photo-card.together { grid-column: 2 / 4; }
 
-/* Letter */
+/* ── LETTER ───────────────────────────────────── */
 .letter-section { text-align: center; }
 
 .letter-label {
@@ -457,6 +472,79 @@ body {
 .letter-corner.tr { top: 8px; right: 8px; border-width: 2px 2px 0 0; }
 .letter-corner.bl { bottom: 8px; left: 8px; border-width: 0 0 2px 2px; }
 .letter-corner.br { bottom: 8px; right: 8px; border-width: 0 2px 2px 0; }
+
+/* ── ENVELOPE ────────────────────────────────── */
+.envelope-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.envelope {
+  position: relative;
+  width: 280px;
+  height: 190px;
+  transition: transform 0.3s ease;
+}
+
+.envelope:hover { transform: scale(1.04); }
+
+.env-body {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, #4a0010, #8b0000);
+  border-radius: 8px;
+  border: 1px solid #c0112b66;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16px 48px #8b000066;
+  overflow: hidden;
+}
+
+.env-body::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 50%;
+  background: linear-gradient(to top, #3b000d, transparent);
+}
+
+.env-hint {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #fde8ecaa;
+  position: relative;
+  z-index: 1;
+}
+
+.env-flap {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 0;
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-top: 100px solid #c0112b;
+  transform-origin: top center;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 2;
+  filter: drop-shadow(0 4px 8px #00000066);
+}
+
+.env-flap.open {
+  transform: rotateX(180deg);
+}
+
+@keyframes letter-rise {
+  from { transform: translateY(60px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.letter-frame.revealed {
+  animation: letter-rise 0.7s 0.4s ease both;
+}
 
 /* ── REASONS PAGE ─────────────────────────────── */
 .reasons-inner {
@@ -687,10 +775,10 @@ body {
   animation: fade-up 0.7s ease both;
 }
 
-.page.active .photo-layout { animation-delay: 0.15s; }
-.page.active .bucket-list  { animation-delay: 0.15s; }
-.page.active .promises-grid{ animation-delay: 0.15s; }
-.page.active .reasons-card { animation-delay: 0.15s; }
+.page.active .photo-layout  { animation-delay: 0.15s; }
+.page.active .bucket-list   { animation-delay: 0.15s; }
+.page.active .promises-grid { animation-delay: 0.15s; }
+.page.active .reasons-card  { animation-delay: 0.15s; }
 .page.active .letter-section{ animation-delay: 0.3s; }
 
 /* ── RESPONSIVE ───────────────────────────────── */
@@ -716,7 +804,6 @@ body {
   }
 
   .reason-btn { width: 100%; }
-
   .hub-title { font-size: 3rem; }
 }
 
@@ -725,7 +812,7 @@ body {
   .hub-content { padding: 30px 16px; }
   .hub-header { margin-bottom: 40px; }
   .page-inner { padding: 30px 16px 60px; }
-                              }
+}
 
 /* ── PASSWORD PAGE ───────────────────────────── */
 #page-password {
@@ -834,7 +921,7 @@ body {
 
 .password-error.show { opacity: 1; }
 
-/* ── COUNTER ─────────────────────────────────── */
+/* ── COUNTER ──────────────────────────────────── */
 .counter-wrap {
   margin: 8px 0 40px;
   text-align: center;
@@ -894,7 +981,7 @@ body {
   opacity: 0.6;
 }
 
-/* ── SHOOTING STARS ──────────────────────────── */
+/* ── SHOOTING STARS ───────────────────────────── */
 .star {
   position: fixed;
   top: 0;
@@ -924,80 +1011,7 @@ body {
   100% { transform: translate(var(--tx), var(--ty)) rotate(var(--angle)); opacity: 0; }
 }
 
-/* ── ENVELOPE ────────────────────────────────── */
-.envelope-wrap {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 24px;
-  cursor: pointer;
-}
-
-.envelope {
-  position: relative;
-  width: 280px;
-  height: 190px;
-  transition: transform 0.3s ease;
-}
-
-.envelope:hover { transform: scale(1.04); }
-
-.env-body {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(160deg, #4a0010, #8b0000);
-  border-radius: 8px;
-  border: 1px solid #c0112b66;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 16px 48px #8b000066;
-  overflow: hidden;
-}
-
-.env-body::before {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 50%;
-  background: linear-gradient(to top, #3b000d, transparent);
-}
-
-.env-hint {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 1.1rem;
-  color: #fde8ecaa;
-  position: relative;
-  z-index: 1;
-}
-
-.env-flap {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 0;
-  border-left: 140px solid transparent;
-  border-right: 140px solid transparent;
-  border-top: 100px solid #c0112b;
-  transform-origin: top center;
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  z-index: 2;
-  filter: drop-shadow(0 4px 8px #00000066);
-}
-
-.env-flap.open {
-  transform: rotateX(180deg);
-}
-
-@keyframes letter-rise {
-  from { transform: translateY(60px); opacity: 0; }
-  to   { transform: translateY(0);    opacity: 1; }
-}
-
-.letter-frame.revealed {
-  animation: letter-rise 0.7s 0.4s ease both;
-}
-
-/* ── EASTER EGGS ─────────────────────────────── */
+/* ── EASTER EGGS ──────────────────────────────── */
 .egg-overlay {
   position: fixed;
   inset: 0;
@@ -1079,7 +1093,6 @@ body {
   border-color: #c0112b;
 }
 
-/* Heart burst */
 .burst-heart {
   position: fixed;
   font-size: 1.5rem;
@@ -1093,7 +1106,7 @@ body {
   100% { transform: translate(var(--bx), var(--by)) scale(1.4) rotate(var(--br)); opacity: 0; }
 }
 
-/* Midnight glow */
+/* ── MIDNIGHT BANNER ──────────────────────────── */
 .midnight-banner {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -1124,59 +1137,8 @@ body {
   cursor: pointer;
   padding: 4px 8px;
 }
-/* ── PLAYLIST UI ───────────────────────────── */
-.playlist-ui {
-  position: fixed;
-  bottom: 90px;
-  right: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  z-index: 100;
 
-  /* hidden by default */
-  opacity: 0;
-  transform: translateY(10px);
-  pointer-events: none;
-  transition: 0.3s;
-}
-
-.song-btn {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  color: var(--text);
-  padding: 6px 10px;
-  border-radius: 10px;
-  font-family: 'Crimson Pro', serif;
-  font-size: 0.8rem;
-  cursor: pointer;
-  backdrop-filter: blur(12px);
-  transition: all 0.3s ease;
-}
-
-.song-btn:hover {
-  border-color: #c0112b66;
-  color: var(--blush);
-  transform: translateX(-2px);
-}
-
-.song-btn.active {
-  background: #8b000033;
-  border-color: #c0112b80;
-  color: var(--rose);
-  box-shadow: 0 0 20px #c0112b4c;
-}
-
-/* show on hover */
-.music-fab:hover + .playlist-ui,
-.playlist-ui:hover {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-/* ── BIRTHDAY & LOCKED PORTALS ───────────────── */
-
-/* ── LOCKED POPUP ────────────────────────────── */
+/* ── LOCKED PORTAL POPUP ──────────────────────── */
 .locked-popup {
   position: fixed;
   inset: 0;
@@ -1286,23 +1248,3 @@ body {
   background: #c0112b;
   border-color: #c0112b;
 }
-
-/* ── PORTAL GRADIENT ─────────────────────────── */
-.portal {
-  background: linear-gradient(90deg,
-    #0d0005 0%,
-    #7a1530 25%,
-    #7a1530 75%,
-    #0d0005 100%) !important;
-  border-color: #c0112b44 !important;
-}
-
-.portal:hover {
-  background: linear-gradient(90deg,
-    #0d0005 0%,
-    #a01840 25%,
-    #a01840 75%,
-    #0d0005 100%) !important;
-  border-color: #c0112b88 !important;
-  box-shadow: 0 20px 60px #8b000059, 0 0 0 1px #c0112b33 !important;
-  }
