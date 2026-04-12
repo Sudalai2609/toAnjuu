@@ -103,7 +103,6 @@ const PROMISES = [
 ];
 
 /* ─── MUSIC ───────────────────────────────────────────────────────────────── */
-
 const PLAYLIST = [
   { name: "what you're to me 💗", file: "song1.mp3" },
   { name: "so did I😭", file: "song2.mp3" },
@@ -113,94 +112,74 @@ const PLAYLIST = [
 
 let currentTrack = 0;
 
-const music       = document.getElementById('bgMusic');
+const music = document.getElementById('bgMusic');
 const musicSource = document.getElementById('musicSource');
-const musicBtn    = document.getElementById('musicBtn');
+const musicBtn = document.getElementById('musicBtn');
+const playlistUI = document.getElementById('playlistUI');
 
-/* ── UI STATE ── */
-function setMusicState(playing) {
-  if (playing) {
-    musicBtn.textContent = '❚❚';
-    musicBtn.classList.add('playing');
-  } else {
-    musicBtn.textContent = '♪';
-    musicBtn.classList.remove('playing');
-  }
-}
-
-/* ── LOAD TRACK ── */
-function loadTrack(index) {
-  musicSource.src = PLAYLIST[index].file;   // FIXED
+/* ---------- LOAD ---------- */
+function loadTrack(i) {
+  musicSource.src = PLAYLIST[i].file;
   music.load();
 }
 
-/* ── NEXT SONG ── */
-function playNext() {
+/* ---------- PLAY STATE ---------- */
+function setState(playing) {
+  musicBtn.textContent = playing ? '❚❚' : '♪';
+  musicBtn.classList.toggle('playing', playing);
+}
+
+/* ---------- PLAY ---------- */
+function playTrack() {
+  music.play().then(() => setState(true)).catch(() => {});
+}
+
+/* ---------- NEXT SONG ---------- */
+music.addEventListener('ended', () => {
   currentTrack = (currentTrack + 1) % PLAYLIST.length;
   loadTrack(currentTrack);
-  music.play().then(() => {
-    setMusicState(true);
-    buildPlaylist();
-  }).catch(() => {});
-}
-
-music.addEventListener('ended', playNext);
-
-/* ── TOGGLE PLAY ── */
-musicBtn.addEventListener('click', () => {
-  if (music.paused) {
-    music.play().then(() => setMusicState(true)).catch(() => {});
-  } else {
-    music.pause();
-    setMusicState(false);
-  }
+  playTrack();
+  buildPlaylist();
 });
 
-/* ── AUTOPLAY UNLOCK (first interaction) ── */
-window.addEventListener('click', () => {
-  if (music.paused) {
-    music.play().then(() => setMusicState(true)).catch(() => {});
-  }
-}, { once: true });
+/* ---------- AUTOPLAY ---------- */
+window.addEventListener('click', function initPlay() {
+  loadTrack(currentTrack);
+  playTrack();
+  buildPlaylist();
+  window.removeEventListener('click', initPlay);
+});
 
-/* ── PLAYLIST UI ── */
+/* ---------- BUTTON ---------- */
+musicBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  playlistUI.classList.toggle('show');
+});
+
+/* ---------- PLAYLIST ---------- */
 function buildPlaylist() {
-  const container = document.getElementById('playlistUI');
-  container.innerHTML = '';
+  playlistUI.innerHTML = '';
 
   PLAYLIST.forEach((song, i) => {
-    const btn = document.createElement('div');
-    btn.className = 'song-btn' + (i === currentTrack ? ' active' : '');
-    btn.textContent = song.name;
+    const el = document.createElement('div');
+    el.className = 'song-btn' + (i === currentTrack ? ' active' : '');
+    el.textContent = song.name;
 
-    btn.addEventListener('click', () => {
+    el.onclick = () => {
       currentTrack = i;
       loadTrack(i);
-      music.play().then(() => setMusicState(true)).catch(() => {});
+      playTrack();
       buildPlaylist();
-    });
+    };
 
-    container.appendChild(btn);
+    playlistUI.appendChild(el);
   });
 }
-const playlistUI = document.getElementById('playlistUI');
 
-musicBtn.addEventListener('click', (e) => {
-  e.stopPropagation(); // prevent closing instantly
-
-  playlistUI.classList.toggle('show');
-
-  if (music.paused) {
-    music.play().then(() => setMusicState(true)).catch(() => {});
-  } else {
-    music.pause();
-    setMusicState(false);
-  }
-});
-
-/* ── INIT ── */
+/* ---------- INIT ---------- */
 loadTrack(currentTrack);
 buildPlaylist();
+
 
 /* ─── REASONS ─────────────────────────────────────────────────────────────── */
 
