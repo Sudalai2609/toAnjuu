@@ -528,4 +528,41 @@ function checkMidnight() {
 
 checkMidnight();
 setInterval(checkMidnight, 60000);
+
+/* ─── BIRTHDAY PORTAL ─────────────────────────── */
+document.querySelector('.portal-birthday').addEventListener('click', () => {
+  window.open('https://sudalai2609.github.io/ToTheBestBirthday/', '_blank');
+});
+
+/* ─── LOCKED PORTAL ───────────────────────────── */
+const UNLOCK_DATE = new Date('2027-04-04T00:00:00');
+
+function updateLockedCountdown() {
+  const now  = new Date();
+  const diff = Math.max(0, UNLOCK_DATE - now);
+
+  const secs  = Math.floor(diff / 1000) % 60;
+  const mins  = Math.floor(diff / 60000) % 60;
+  const hours = Math.floor(diff / 3600000) % 24;
+  const days  = Math.floor(diff / 86400000);
+
+  document.getElementById('l-days').textContent  = days;
+  document.getElementById('l-hours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('l-mins').textContent  = String(mins).padStart(2, '0');
+  document.getElementById('l-secs').textContent  = String(secs).padStart(2, '0');
+  document.getElementById('lockedSub').textContent = `${days} days to open 🔒`;
+  document.getElementById('lockedDaysLine').textContent = `${days} days, mon chéri 😋`;
+}
+
+function closeLockedPopup() {
+  document.getElementById('lockedPopup').classList.remove('show');
+}
+
+document.getElementById('lockedPortal').addEventListener('click', () => {
+  document.getElementById('lockedPopup').classList.add('show');
+  updateLockedCountdown();
+});
+
+updateLockedCountdown();
+setInterval(updateLockedCountdown, 1000);
       
