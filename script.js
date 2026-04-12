@@ -124,14 +124,12 @@ function loadTrack(i) {
 }
 
 /* ---------- PLAY STATE ---------- */
-function setState(playing) {
-  musicBtn.textContent = playing ? '❚❚' : '♪';
-  musicBtn.classList.toggle('playing', playing);
+function setState() {
+  musicBtn.textContent = '♪';
 }
-
 /* ---------- PLAY ---------- */
 function playTrack() {
-  music.play().then(() => setState(true)).catch(() => {});
+  music.play().then(() => setState()).catch(() => {});
 }
 
 /* ---------- NEXT SONG ---------- */
@@ -143,11 +141,13 @@ music.addEventListener('ended', () => {
 });
 
 /* ---------- AUTOPLAY ---------- */
-window.addEventListener('click', function initPlay() {
+function startMusic() {
   loadTrack(currentTrack);
-  playTrack();
-  buildPlaylist();
-  window.removeEventListener('click', initPlay);
+  music.play().then(() => setState()).catch(() => {});
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  startMusic();
 });
 
 /* ---------- BUTTON ---------- */
@@ -166,11 +166,12 @@ function buildPlaylist() {
     el.textContent = song.name;
 
     el.onclick = () => {
-      currentTrack = i;
-      loadTrack(i);
-      playTrack();
-      buildPlaylist();
-    };
+  currentTrack = i;
+  loadTrack(i);
+  playTrack();
+  buildPlaylist();
+  playlistUI.classList.remove('show');
+};
 
     playlistUI.appendChild(el);
   });
