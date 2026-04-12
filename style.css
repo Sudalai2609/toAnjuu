@@ -1174,3 +1174,132 @@ body {
   transform: translateY(0);
   pointer-events: auto;
 }
+/* ── BIRTHDAY & LOCKED PORTALS ───────────────── */
+.portal-birthday {
+  border-color: #c0112b40;
+  background: linear-gradient(135deg, #4a001066, #8b000033);
+}
+
+.portal-locked {
+  opacity: 0.7;
+  cursor: pointer;
+  border-color: #ffffff1f;
+  background: #ffffff08;
+  filter: saturate(0.4);
+}
+
+.portal-locked:hover {
+  opacity: 0.9;
+  filter: saturate(0.6);
+}
+
+/* ── LOCKED POPUP ────────────────────────────── */
+.locked-popup {
+  position: fixed;
+  inset: 0;
+  background: #1a000899;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+.locked-popup.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.locked-box {
+  background: linear-gradient(135deg, #4a0010, #8b0000);
+  border: 1px solid #c0112b66;
+  border-radius: 32px;
+  padding: 48px 40px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 0 80px #c0112b66;
+  transform: scale(0.5) rotate(-8deg);
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.locked-popup.show .locked-box {
+  transform: scale(1) rotate(0deg);
+}
+
+.locked-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2rem;
+  color: #fde8ec;
+  margin-bottom: 8px;
+}
+
+.locked-msg {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #f4a0ae;
+  margin-bottom: 28px;
+}
+
+.locked-countdown {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.locked-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff0f;
+  border: 1px solid #ffffff1f;
+  border-radius: 12px;
+  padding: 12px 14px 8px;
+  min-width: 60px;
+}
+
+.locked-block span:first-child {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6rem;
+  color: #fde8ec;
+  line-height: 1;
+}
+
+.locked-block small {
+  font-family: 'Crimson Pro', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #f4a0ae;
+  opacity: 0.6;
+  margin-top: 4px;
+}
+
+.locked-sep {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.4rem;
+  color: #c0112b;
+  padding-bottom: 12px;
+  opacity: 0.6;
+}
+
+.locked-close {
+  background: #ffffff1f;
+  border: 1px solid #ffffff1f;
+  border-radius: 999px;
+  color: #fde8ec;
+  font-family: 'Crimson Pro', serif;
+  font-size: 1rem;
+  padding: 10px 28px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.locked-close:hover {
+  background: #c0112b;
+  border-color: #c0112b;
+}
