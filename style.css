@@ -227,7 +227,19 @@ body {
 
 .portal {
   position: relative;
-  background: linear-gradient(90deg, #0d0005 0%, #7a1530 25%, #7a1530 75%, #0d0005 100%);
+  background: radial-gradient(circle,
+  #2a0b13 0%,
+  #35101a 10%,
+  #451725 20%,
+  #5a1c2c 30%,
+  #742233 40%,
+  #a63a5a 50%,
+  #742233 60%,
+  #5a1c2c 70%,
+  #451725 80%,
+  #35101a 90%,
+  #2a0b13 100%
+);
   border: 1px solid #c0112b44;
   backdrop-filter: blur(24px);
   border-radius: 28px;
@@ -256,7 +268,19 @@ body {
 
 .portal:hover {
   transform: translateY(-8px) scale(1.02);
-  background: linear-gradient(90deg, #0d0005 0%, #a01840 25%, #a01840 75%, #0d0005 100%);
+  background: radial-gradient(circle,
+  #2a0b13 0%,
+  #35101a 10%,
+  #451725 20%,
+  #5a1c2c 30%,
+  #742233 40%,
+  #a63a5a 50%,
+  #742233 60%,
+  #5a1c2c 70%,
+  #451725 80%,
+  #35101a 90%,
+  #2a0b13 100%
+);
   border-color: #c0112b88;
   box-shadow: 0 20px 60px #8b000059, 0 0 0 1px #c0112b33;
 }
@@ -301,14 +325,40 @@ body {
 
 /* locked portal */
 .portal-locked {
-  background: linear-gradient(90deg, #080003 0%, #0f0008 25%, #0f0008 75%, #080003 100%);
+  background: radial-gradient(circle,
+  #2a0b13 0%,
+  #35101a 10%,
+  #451725 20%,
+  #5a1c2c 30%,
+  #742233 40%,
+  #a63a5a 50%,
+  #742233 60%,
+  #5a1c2c 70%,
+  #451725 80%,
+  #35101a 90%,
+  #2a0b13 100%
+);
   border-color: #ffffff15;
-  opacity: 0.55;
-  filter: saturate(0.3);
 }
 
 .portal-locked:hover {
-  background: linear-gradient(90deg, #080003 0%, #150010 25%, #150010 75%, #080003 100%);
+  background: radial-gradient(circle,
+    #2a0b13 0%,
+    #35101a 10%,
+    #451725 20%,
+    #5a1c2c 30%,
+    #8a2b45 40%,
+    #c05772 50%,
+    #8a2b45 60%,
+    #5a1c2c 70%,
+    #451725 80%,
+    #35101a 90%,
+    #2a0b13 100%
+  );
+  opacity: 0.7;
+  filter: saturate(0.5);
+  box-shadow: 0 10px 30px #00000044;
+}
   opacity: 0.7;
   filter: saturate(0.5);
   box-shadow: 0 10px 30px #00000044;
