@@ -62,6 +62,8 @@ const REASONS = [
   "mwahhh - you know what you're doinggg when youu say itt 😭😭",
   "I love how we can talK abt ANYTHINGGG",
   "I MISS YOU I NEED YOU NOWWW 😭",
+  "how you deal w me even when I'm being soo annoying and ragebaiting you sooo hard 😭",
+  "you turned me into a fulltime yapper 😭😭",
 ];
 
 const BUCKET_LIST = [
@@ -89,6 +91,12 @@ const BUCKET_LIST = [
   "double date with dikshu and her banda",
   "go to countries together!!",
   "definitely (not) say I'm gonna pin you to a wall and kiss you on call/voicenote 😇",
+  "definitely (not) gonna kiss you mid sentence and make you forget what you were saying 😇",
+  "fall asleep on call and wake up on call 😭😭",
+  "look at you and forget what I was saying 😔🙏🏻",
+  "share headphones and listen to the same songg",
+  "carry you and treat you like the queen you areee 😋💅🏻",
+  "definitely hold you tighter and not let go of you 😭🥀",
 ];
 
 const PROMISES = [
