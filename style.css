@@ -132,37 +132,6 @@ body {
   background: #a63a5a;
   color: white;
 }
-#nowPlaying {
-  position: fixed;
-  bottom: 100px;
-  right: 28px;
-
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  color: var(--text);
-
-  padding: 10px 14px;
-  border-radius: 12px;
-
-  font-size: 0.9rem;
-  font-family: inherit;
-
-  backdrop-filter: blur(12px);
-
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.25s ease;
-
-  pointer-events: none;
-
-  box-shadow: 0 10px 30px #1a0008;
-}
-
-#nowPlaying.show {
-  opacity: 1;
-  transform: translateY(0);
-  box-shadow: 0 0 25px #c0112b;
-}
 
 /* ── PAGES ────────────────────────────────────── */
 .page {
