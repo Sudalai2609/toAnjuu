@@ -1301,67 +1301,46 @@ body {
 }
 /* ── INDIVIDUAL PORTAL STYLES ─────────────────── */
 
-/* 📸 you, and us — warm rose */
+/* 📸 you, and us */
 .portal[data-target="page-photos"] {
-  background: linear-gradient(135deg, #3d0a0a33, #8b000022) !important;
-  border-color: #e8405a33 !important;
-}
-.portal[data-target="page-photos"]:hover {
-  border-color: #e8405a66 !important;
-  box-shadow: 0 20px 60px #e8405a33, 0 0 0 1px #e8405a22 !important;
-}
-
-/* ❤️ you, specifically — deep cherry */
-.portal[data-target="page-reasons"] {
-  background: linear-gradient(135deg, #8b000033, #c0112b22) !important;
-  border-color: #c0112b44 !important;
-}
-.portal[data-target="page-reasons"]:hover {
-  border-color: #c0112b88 !important;
-  box-shadow: 0 20px 60px #c0112b44, 0 0 0 1px #c0112b33 !important;
-}
-
-/* 💅 our somedays — soft burgundy dreamy */
-.portal[data-target="page-bucket"] {
-  background: linear-gradient(135deg, #4a001033, #8b000022) !important;
+  background: linear-gradient(135deg, #1a00081a, #f4a0ae0d) !important;
   border-color: #f4a0ae33 !important;
 }
-.portal[data-target="page-bucket"]:hover {
-  border-color: #f4a0ae66 !important;
-  box-shadow: 0 20px 60px #f4a0ae22, 0 0 0 1px #f4a0ae22 !important;
-}
+.portal[data-target="page-photos"] .portal-icon { color: #f4a0ae; }
 
-/* 🤝 i swear — dark serious crimson */
-.portal[data-target="page-promises"] {
-  background: linear-gradient(135deg, #1a000833, #4a001033) !important;
+/* ❤️ you, specifically */
+.portal[data-target="page-reasons"] {
+  background: linear-gradient(135deg, #1a00081a, #e8405a0d) !important;
+  border-color: #e8405a33 !important;
+}
+.portal[data-target="page-reasons"] .portal-icon { color: #e8405a; }
+
+/* 💅 our somedays */
+.portal[data-target="page-bucket"] {
+  background: linear-gradient(135deg, #1a00081a, #c0112b0d) !important;
   border-color: #c0112b33 !important;
 }
-.portal[data-target="page-promises"]:hover {
-  border-color: #c0112b77 !important;
-  box-shadow: 0 20px 60px #8b000055, 0 0 0 1px #c0112b44 !important;
-}
+.portal[data-target="page-bucket"] .portal-icon { color: #c0112b; }
 
-/* 🎂 april 4, 2026 — warm golden birthday */
+/* 🤝 i swear */
+.portal[data-target="page-promises"] {
+  background: linear-gradient(135deg, #1a00081a, #8b00000d) !important;
+  border-color: #8b000044 !important;
+}
+.portal[data-target="page-promises"] .portal-icon { color: #c0112b; }
+
+/* 🎂 april 4, 2026 */
 .portal-birthday {
-  background: linear-gradient(135deg, #3d1a0033, #8b4a0022) !important;
-  border-color: #d4844433 !important;
+  background: linear-gradient(135deg, #1a00081a, #f4a0ae0d) !important;
+  border-color: #f4a0ae22 !important;
 }
-.portal-birthday:hover {
-  border-color: #d4844466 !important;
-  box-shadow: 0 20px 60px #d4844433, 0 0 0 1px #d4844422 !important;
-}
-.portal-birthday .portal-icon { color: #d48444 !important;
-.portal-birthday:hover .portal-icon { color: #e09a5a !important; }
+.portal-birthday .portal-icon { color: #f4a0ae; }
 
-/* 🔒 april 4, 2027 — mysterious greyed out */
+/* 🔒 april 4, 2027 */
 .portal-locked {
-  background: #ffffff08 !important;
-  border-color: #ffffff15 !important;
-  filter: saturate(0.3);
-  opacity: 0.65;
+  background: linear-gradient(135deg, #1a00081a, #ffffff05) !important;
+  border-color: #ffffff11 !important;
+  filter: saturate(0.4);
+  opacity: 0.6;
 }
-.portal-locked:hover {
-  filter: saturate(0.5);
-  opacity: 0.85;
-  box-shadow: 0 20px 60px #ffffff11;
-}
+.portal-locked .portal-icon { color: #fde8ec66; }
