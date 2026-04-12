@@ -502,7 +502,7 @@ if (letterFrame) {
 // ── EGG 7: Triple click big photo ────────────
 let photoClicks = 0;
 let photoTimer;
-const bigPhoto = document.querySelector('.photo-card.big');
+const bigPhoto = document.querySelector('.photo-card.together');
 if (bigPhoto) {
   bigPhoto.addEventListener('click', () => {
     photoClicks++;
