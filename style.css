@@ -1176,19 +1176,6 @@ body {
 }
 /* ── BIRTHDAY & LOCKED PORTALS ───────────────── */
 
-.portal-locked {
-  opacity: 0.7;
-  cursor: pointer;
-  border-color: #ffffff1f;
-  background: #ffffff08;
-  filter: saturate(0.4);
-}
-
-.portal-locked:hover {
-  opacity: 0.9;
-  filter: saturate(0.6);
-}
-
 /* ── LOCKED POPUP ────────────────────────────── */
 .locked-popup {
   position: fixed;
@@ -1298,33 +1285,24 @@ body {
 .locked-close:hover {
   background: #c0112b;
   border-color: #c0112b;
+}
+
 /* ── PORTAL GRADIENT ─────────────────────────── */
 .portal {
   background: linear-gradient(90deg,
-    #1a0008 0%,
-    #6b001a 25%,
-    #6b001a 75%,
-    #1a0008 100%) !important;
+    #0d0005 0%,
+    #7a1530 25%,
+    #7a1530 75%,
+    #0d0005 100%) !important;
   border-color: #c0112b44 !important;
 }
 
 .portal:hover {
   background: linear-gradient(90deg,
-    #1a0008 0%,
-    #8b0022 25%,
-    #8b0022 75%,
-    #1a0008 100%) !important;
+    #0d0005 0%,
+    #a01840 25%,
+    #a01840 75%,
+    #0d0005 100%) !important;
   border-color: #c0112b88 !important;
   box-shadow: 0 20px 60px #8b000059, 0 0 0 1px #c0112b33 !important;
-}
-
-.portal-locked {
-  background: linear-gradient(90deg,
-    #0d0005 0%,
-    #1a000a 25%,
-    #1a000a 75%,
-    #0d0005 100%) !important;
-  border-color: #ffffff15 !important;
-  opacity: 0.55 !important;
-  filter: saturate(0.3) !important;
-}
+  }
