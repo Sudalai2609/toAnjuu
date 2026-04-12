@@ -227,7 +227,7 @@ body {
 
 .portal {
   position: relative;
-  background: radial-gradient(circle,
+  background: linear-gradient(135deg,
   #2a0b13 0%,
   #35101a 10%,
   #451725 20%,
@@ -268,7 +268,7 @@ body {
 
 .portal:hover {
   transform: translateY(-8px) scale(1.02);
-  background: radial-gradient(circle,
+  background: linear-gradient(145deg,
   #2a0b13 0%,
   #35101a 10%,
   #451725 20%,
@@ -325,7 +325,7 @@ body {
 
 /* locked portal */
 .portal-locked {
-  background: radial-gradient(circle,
+  background: linear-gradient(135deg,
   #2a0b13 0%,
   #35101a 10%,
   #451725 20%,
@@ -342,7 +342,7 @@ body {
 }
 
 .portal-locked:hover {
-  background: radial-gradient(circle,
+  background: linear-gradient(145deg,
     #2a0b13 0%,
     #35101a 10%,
     #451725 20%,
