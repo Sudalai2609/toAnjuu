@@ -129,7 +129,10 @@ function setState() {
 }
 /* ---------- PLAY ---------- */
 function playTrack() {
-  music.play().then(() => setState()).catch(() => {});
+  music.play().then(() => {
+    setState(true);
+    showNowPlaying(currentTrack);
+  }).catch(() => {});
 }
 
 /* ---------- NEXT SONG ---------- */
@@ -186,6 +189,17 @@ function buildPlaylist() {
 /* ---------- INIT ---------- */
 loadTrack(currentTrack);
 buildPlaylist();
+
+const nowPlaying = document.getElementById('nowPlaying');
+
+function showNowPlaying(index) {
+  nowPlaying.textContent = "Now playing: " + PLAYLIST[index].name;
+  nowPlaying.classList.add('show');
+
+  setTimeout(() => {
+    nowPlaying.classList.remove('show');
+  }, 2500);
+}
 
 
 /* ─── REASONS ─────────────────────────────────────────────────────────────── */
