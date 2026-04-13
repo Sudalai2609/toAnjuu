@@ -90,8 +90,6 @@ const BUCKET_LIST = [
   "give each other forehead kisses and kisses on cheek for no reason 😇",
   "double date with dikshu and her banda",
   "go to countries together!!",
-  "definitely (not) say I'm gonna pin you to a wall and kiss you on call/voicenote 😇",
-  "definitely (not) gonna kiss you mid sentence and make you forget what you were saying 😇",
   "fall asleep on call and wake up on call 😭😭",
   "look at you and forget what I was saying 😔🙏🏻",
   "share headphones and listen to the same songg",
