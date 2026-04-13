@@ -95,6 +95,7 @@ const BUCKET_LIST = [
   "share headphones and listen to the same songg",
   "carry you and treat you like the queen you areee 😋💅🏻",
   "definitely hold you tighter and not let go of you 😭🥀",
+  "become your personal lip balm and gloss 😇",
 ];
 
 const PROMISES = [
